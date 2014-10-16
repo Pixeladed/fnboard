@@ -1,0 +1,33 @@
+var fs = require('fs');
+var http = require('http');
+var port = process.env.PORT || 8000;
+
+var server = http.createServer(function(req,res) {
+	res.writeHead(200, {'Content-type':'text/html'});
+	fs.readFile('./client' + req.url,function(error,data) {
+		if (error) {
+			res.writeHead(500, {'Content-type':'text/plain'});
+			res.end('ERROR LOADING PAGE: ' + error + '     please add "/index.html" to the end of the url');
+		} else {
+			res.writeHead(200, {'Content-type':'text/html'});
+			res.end(data);
+		}
+	});
+});
+server.listen(port);
+console.log('LISTENING on ' + port);
+var io = require('socket.io').listen(server);
+io.configure(function() { 
+	io.set("transports", ["xhr-polling"]); 
+  	io.set("polling duration", 10); 
+});
+io.set('log level', 1);
+
+io.sockets.on('connection',function(socket) {
+	socket.on('upEC',function(data) {
+		socket.broadcast.emit('upECTOUSE',data);
+	});
+	socket.on('neEC',function(data) {
+		socket.broadcast.emit('neECTOUSE',data);
+	});
+});

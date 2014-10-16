@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<link rel="shortcut icon" href="/logo.png" type="image/png">
+		<link rel="stylesheet" href="normalize.css">
+		<link rel='stylesheet' href='style.css'>
+		<script src='/script/jquery.js'></script>
+		<script>
+			var TogetherJSConfig_toolName = 'Collaboration';
+			var TogetherJSConfig_dontShowClicks = true;
+			var TogetherJSConfig_cloneClicks = true;
+			var TogetherJSConfig_useMinimizedCode = true;
+		</script>
+		<script src="https://togetherjs.com/togetherjs-min.js"></script>
+		<script src='/script/ace.js'></script>
+		<script src='/script/fs.js'></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src='/script/script.js'></script>
+		<title>fnBoard</title>
+	</head>
+	<body>
+		<div id="start">
+			<div id="logo"></div>
+			<h1>[fn]Board</h1>
+			<div id='btGr'>
+				<button id="up">Upload files</button>
+				<button id="ne"> Create new document</button>
+				<button id='download'>Download [beta]</button>
+			</div>
+			<input class='hidden' type="file">
+		</div>
+		<div id="editorWindow">
+			<header>
+				<ul id='fileInfo'>
+					<li>
+						<input type="text" id="name" autocomplete="off" value='untitled.html' spellcheck="false">
+					</li>
+					<li>
+						<p id="size">0KB</p>
+					</li>
+					<li>
+						<p id="mode">Plain text</p>
+						<ul id="modeOp">
+							<li id='html'>HTML</li>
+							<li id='css'>CSS</li>
+							<li id='js'>Javascript</li>
+							<li id='plain'>Plain text</li>
+							<li id="clojure">Clojure</li>
+							<li id="cs">C#</li>
+							<li id="go">Go</li>
+							<li id="java">Java</li>
+							<li id="latex">Latex</li>
+							<li id="objc">Objective C</li>
+							<li id="pascal">Pascal</li>
+							<li id="perl">Perl</li>
+							<li id="php">PHP</li>
+							<li id="python">Python</li>
+							<li id="ruby">Ruby</li>
+							<li id="md">Markdown</li>
+						</ul>
+					</li>
+					<li>
+						<button onclick="TogetherJS(this); return false;" id='colab'>Collaborate</button>
+					</li>
+				</ul>
+			</header>
+			<div id='upE'></div>
+			<div id='neE'></div>
+		</div>
+		<footer>Made with Javascript by Minh Le</footer>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+**©Pixeladed 2013 All right reserver**

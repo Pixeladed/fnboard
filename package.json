@@ -1,0 +1,11 @@
+{
+  "name": "fnboard_a0(beta)",
+  "version": "0.0.1",
+  "description": "Collaborative code editing",
+  "main": "server.js",
+  "repository": "",
+  "author": "Minh Le",
+  "dependencies": {
+    "socket.io": "~0.9.14"
+  }
+}
