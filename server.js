@@ -4,10 +4,17 @@ var port = process.env.PORT || 8000;
 
 var server = http.createServer(function(req,res) {
 	res.writeHead(200, {'Content-type':'text/html'});
-	fs.readFile('./client' + req.url,function(error,data) {
+	if (req.url == '/') {
+    	var filePath = '/index.html';
+	} else if (req.url == '') {
+	    var filePath = '/index.html';
+	} else {
+	    var filePath = req.url;
+	}
+	fs.readFile('./client'+filePath,function(error,data) {
 		if (error) {
 			res.writeHead(500, {'Content-type':'text/plain'});
-			res.end('ERROR LOADING PAGE: ' + error + '     please add "/index.html" to the end of the url');
+			res.end("Oh dear, something has gone horribly wrong, please reload the page"+error+req.url);
 		} else {
 			res.writeHead(200, {'Content-type':'text/html'});
 			res.end(data);
