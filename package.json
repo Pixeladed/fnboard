@@ -1,5 +1,5 @@
 {
-  "name": "fnboard_a0(beta)",
+  "name": "fnboard",
   "version": "0.0.1",
   "description": "Collaborative code editing",
   "main": "server.js",
