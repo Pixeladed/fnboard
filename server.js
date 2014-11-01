@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/client'));
 
 var server = http.createServer(app);
 
-app.listen(port);
+server.listen(port);
 console.log('LISTENING on ' + port);
 var io = require('socket.io').listen(server);
 io.configure(function() { 
